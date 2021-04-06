@@ -2,6 +2,8 @@
 
 var muni = require("./italy_muni.json");
 
+// var muni = require("./italy_test.json");
+
 var extracted_muni = [];
 var final_data = [];
 var log = "";
@@ -67,15 +69,16 @@ async function exec() {
       // console.log(final_data);
     }
   }
+
+  fs.writeFile("data.csv", final_data.join("\n"), (err) => {
+    // In case of a error throw err.
+    if (err) throw err;
+  });
+
+  fs.writeFile("logs.txt", log, (err) => {
+    // In case of a error throw err.
+    if (err) throw err;
+  });
 }
 
 exec();
-fs.writeFile("data.csv", final_data.join("\n"), (err) => {
-  // In case of a error throw err.
-  if (err) throw err;
-});
-
-fs.writeFile("logs.txt", log, (err) => {
-  // In case of a error throw err.
-  if (err) throw err;
-});
