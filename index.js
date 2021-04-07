@@ -45,7 +45,11 @@ async function exec() {
 
           console.log(total);
           console.log(url);
-          var result_array = [extracted_muni[i].nome, year, total];
+          var result_array = [
+            JSON.stringify(extracted_muni[i].nome),
+            year,
+            JSON.stringify(total),
+          ];
           final_data.push(result_array.join(","));
           console.log(extracted_muni[i].nome + " is successful");
         })
